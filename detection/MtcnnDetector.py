@@ -169,6 +169,8 @@ class MtcnnDetector:
         ones=np.ones_like(tmpw)
         zeros=np.zeros_like(tmpw)
         num_boxes=np.sum(np.where((np.minimum(tmpw,tmph)>=delete_size),ones,zeros))
+        if num_boxes == 0:
+            return None, None, None
         cropped_ims=np.zeros((num_boxes,24,24,3),dtype=np.float32)
         for i in range(num_boxes):
             #将pnet生成的box相对与原图进行裁剪，超出部分用0补
