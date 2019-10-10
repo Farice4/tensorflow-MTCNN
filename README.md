@@ -55,6 +55,7 @@ python gen_tfrecords.py 48生成tfrecords文件<br>
 将目录cd到train上python train.py 48 训练onet<br><br>
 测试:<br><br>
 python test.py<br>
+测试单张图片python test_one.py picture/test.jpg<br>
 ### 一些建议
 生成hard_example时间非常长需要三到四小时，所以如果你想从头训练请耐心等待，如果代码或理解有什么问题，欢迎批评指正。<br>
 ### 结果展示
