@@ -54,8 +54,18 @@ python gen_landmark_aug.py 48 生成onet的landmark数据,<br>
 python gen_tfrecords.py 48生成tfrecords文件<br>
 将目录cd到train上python train.py 48 训练onet<br><br>
 测试:<br><br>
+* 进行目录下多个图片测试
 python test.py<br>
-测试单张图片python test_one.py picture/test.jpg<br>
+
+* 单张图片测试
+python test_one.py picture/test.jpg<br>
+
+* 使用Flask API测试
+python web/run_face.py
+
+服务启动后，客户端通过Post 图片进行测试:
+curl -v -F image=@test.jpg http://192.168.250.165:8000/classifyImage > test.png<br>
+
 ### 一些建议
 生成hard_example时间非常长需要三到四小时，所以如果你想从头训练请耐心等待，如果代码或理解有什么问题，欢迎批评指正。<br>
 ### 结果展示
