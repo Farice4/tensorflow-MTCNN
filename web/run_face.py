@@ -7,9 +7,6 @@ import face_processor
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return redirect("https://ekholabs.ai", code=302)
 
 @app.route('/model_app/tensorflow_mtcnn/detect', methods=['POST'])
 def upload():
