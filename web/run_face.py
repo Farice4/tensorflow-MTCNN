@@ -11,7 +11,7 @@ app = Flask(__name__)
 def index():
     return redirect("https://ekholabs.ai", code=302)
 
-@app.route('/classifyImage', methods=['POST'])
+@app.route('/model_app/tensorflow_mtcnn/detect', methods=['POST'])
 def upload():
     try:
         image = request.files['image']
