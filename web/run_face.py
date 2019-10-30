@@ -2,6 +2,7 @@ from flask import Flask, jsonify, make_response, request, abort, redirect, send_
 from werkzeug.utils import secure_filename
 import logging
 import os
+import sys
 import base64
 import uuid
 
@@ -20,7 +21,8 @@ def upload():
         filename = str(uuid.uuid4()) + fn[0] + '.' + fn[1]
         upload_path = os.path.join(basepath, filename)
         image.save(upload_path)
-        face_processor.detection(upload_path, filename)
+
+        face_processor.detection(upload_path, filename, app.config.get('model_path'))
         return make_response(jsonify(convert_data(filename)), 200)
         #return send_file('../output/predicted_image.png', mimetype='image/png')
     except Exception as err:
@@ -44,4 +46,6 @@ def not_found(error):
     return make_response(jsonify({'error': 'Resource no found.'}), 404)
 
 if __name__ == '__main__':
+    # model_path use '/root/data/pvc/model/
+    app.config['model_path'] = sys.argv[1]
     app.run(debug=True, host='0.0.0.0', port=80)

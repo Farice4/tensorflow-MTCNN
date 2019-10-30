@@ -22,24 +22,26 @@ thresh=config.thresh
 min_face_size=config.min_face
 stride=config.stride
 detectors=[None,None,None]
-# 模型放置位置
-model_path=['model/PNet/','model/RNet/','model/ONet']
+
 batch_size=config.batches
-PNet=FcnDetector(P_Net,model_path[0])
-detectors[0]=PNet
 
 
-if test_mode in ["RNet", "ONet"]:
-    RNet = Detector(R_Net, 24, batch_size[1], model_path[1])
-    detectors[1] = RNet
+def detection(imgle_file, filename, mp):
+
+    if not os.path.exists(mp):
+        os._exists(1)
+    PNet=FcnDetector(P_Net, mp+'/PNet')
+    detectors[0]=PNet
 
 
-if test_mode == "ONet":
-    ONet = Detector(O_Net, 48, batch_size[2], model_path[2])
-    detectors[2] = ONet
+    if test_mode in ["RNet", "ONet"]:
+        RNet = Detector(R_Net, 24, batch_size[1], mp+'/RNet')
+        detectors[1] = RNet
 
 
-def detection(imgle_file, filename):
+    if test_mode == "ONet":
+        ONet = Detector(O_Net, 48, batch_size[2], mp+'/ONet')
+        detectors[2] = ONet
 
     mtcnn_detector = MtcnnDetector(detectors=detectors, min_face_size=min_face_size,
                                    stride=stride, threshold=thresh)
