@@ -39,7 +39,7 @@ if test_mode == "ONet":
     detectors[2] = ONet
 
 
-def detection(imgle_file):
+def detection(imgle_file, filename):
 
     mtcnn_detector = MtcnnDetector(detectors=detectors, min_face_size=min_face_size,
                                    stride=stride, threshold=thresh)
@@ -66,7 +66,7 @@ def detection(imgle_file):
     k = cv2.waitKey(0) & 0xFF
     #if k == 27:
     #    cv2.imwrite(out_path + item,img)
-    cv2.imwrite(out_path + 'predicted_image.png',img)
+    cv2.imwrite(out_path + '%s' % filename,img)
     cv2.destroyAllWindows()
 
 
