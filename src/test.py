@@ -5,14 +5,14 @@
 
 
 import sys
-from detection.MtcnnDetector import MtcnnDetector
-from detection.detector import Detector
-from detection.fcn_detector import FcnDetector
-from train.model import P_Net,R_Net,O_Net
+from src.detection.MtcnnDetector import MtcnnDetector
+from src.detection.detector import Detector
+from src.detection.fcn_detector import FcnDetector
+from src.train.model import P_Net,R_Net,O_Net
 import cv2
 import os
 import numpy as np
-import train.config as config
+import src.train.config as config
 
 
 # In[ ]:

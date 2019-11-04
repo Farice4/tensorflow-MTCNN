@@ -30,5 +30,5 @@ input_mode='1'
 #测试图片放置位置
 test_dir='picture/'
 #测试输出位置
-out_path='output/'
+out_path='/tmp/'
 

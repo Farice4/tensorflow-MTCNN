@@ -7,7 +7,7 @@ import base64
 import uuid
 
 import face_processor
-import train.config as config
+import src.train.config as config
 
 app = Flask(__name__)
 

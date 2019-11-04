@@ -7,7 +7,7 @@
 import tensorflow as tf
 import sys
 sys.path.append('../')
-import train.config as config
+import src.train.config as config
 
 
 # In[2]:

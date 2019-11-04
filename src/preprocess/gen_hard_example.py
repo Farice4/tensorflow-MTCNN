@@ -14,11 +14,11 @@ import cv2
 from tqdm import tqdm
 from loader import TestLoader
 sys.path.append('../')
-from train.model import P_Net,R_Net,O_Net
-import train.config as config
-from detection.detector import Detector
-from detection.fcn_detector import FcnDetector
-from detection.MtcnnDetector import MtcnnDetector
+from src.train.model import P_Net,R_Net,O_Net
+import src.train.config as config
+from src.detection.detector import Detector
+from src.detection.fcn_detector import FcnDetector
+from src.detection.MtcnnDetector import MtcnnDetector
 
 
 # In[3]:

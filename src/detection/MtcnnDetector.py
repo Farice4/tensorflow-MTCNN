@@ -9,7 +9,7 @@ import numpy as np
 import sys
 
 sys.path.append('../')
-from preprocess.utils import *
+from src.preprocess.utils import *
 from tqdm import tqdm
 
 
